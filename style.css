@@ -243,7 +243,28 @@ button.cta:hover {
     font-size: 40px;
     cursor: pointer;
 }
+.mini-cta {
+    background-color: #ff8fa3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.2s;
+}
+
+.mini-cta:hover {
+    transform: scale(1.1);
+}
+
+/* Hide the old floating X if you don't want it anymore */
+.close-btn {
+    display: none; 
+}
 /* Modal Styling */
+
 .modal {
     display: none; 
     position: fixed; 

@@ -40,3 +40,14 @@ closeBtn.onclick = () => {
     modal.classList.remove('open');
     setTimeout(() => { modal.style.display = "none"; }, 500);
 };
+const closeLetterBtn = document.getElementById("closeLetterBtn");
+
+closeLetterBtn.onclick = () => {
+    // 1. Slide the letter back down
+    modal.classList.remove('open');
+    
+    // 2. Wait for the animation to finish, then hide the background
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 600);
+};
