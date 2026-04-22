@@ -21,19 +21,24 @@ ctaBtn.addEventListener('click', () => {
         const choice = options[Math.floor(Math.random() * options.length)];
         ctaBtn.innerText = "Click for some magic";
 
-        if (choice.type === 'game') {
-            // Redirect to game
-            if(confirm(`Lucky! You won a round of ${choice.name}! Want to play?`)) {
-                window.open(choice.url, '_blank');
-            }
-        } else {
-            // Show Love Card
-            modalBody.innerText = choice.text;
-            modal.style.display = "block";
-            // Trigger hearts from the previous code
-            triggerHearts();
+        // ... inside your event listener after the "Choosing" timeout ...
+
+    if (choice.type === 'game') {
+        if(confirm(`Lucky! You won a round of ${choice.name}!`)) {
+            window.open(choice.url, '_blank');
         }
-    }, 800);
+    } else {
+        // Show Letter Animation
+        modalBody.innerText = choice.text;
+        modal.style.display = "block";
+        
+        // Tiny delay so the animation feels smooth
+        setTimeout(() => {
+            modal.classList.add('open');
+        }, 100);
+        
+        triggerHearts();
+    }
 });
 
 // Close modal when X is clicked
