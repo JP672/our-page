@@ -1,0 +1,209 @@
+/* style.css */
+
+/* import google fonts for typography */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --primary: #FF5C77; /* Deep Rose */
+    --secondary: #FFB3C1; /* Soft Pink */
+    --bg-warm: #FFFDFE; /* Warm White */
+    --text-dark: #3D1E25; /* Dark Plum */
+    --p-bg: #fff;
+    --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); /* Custom smooth ease */
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    background-color: #fcebeb; /* very pale warm cream */
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* --- Type Styles --- */
+h1 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-top: 0;
+}
+
+h2 {
+    font-family: 'Abril Fatface', serif;
+    font-weight: 400;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    color: rgba(61, 30, 37, 0.9);
+}
+
+.highlight {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* --- Layout Sections --- */
+header, .content-section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards ease-out;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 80px;
+    animation-delay: 0.1s;
+}
+
+.photo-cards, .gallery-grid {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 80px;
+    animation-delay: 0.2s;
+}
+
+.content-section {
+    background-color: var(--bg-warm);
+    padding: 50px;
+    border-radius: 20px;
+    margin-bottom: 80px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    animation-delay: 0.3s;
+}
+
+/* --- Components --- */
+.card {
+    flex: 1;
+    background-color: var(--p-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(255, 92, 119, 0.08);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 45px rgba(255, 92, 119, 0.15);
+}
+
+.card-img-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+
+.pebble-img {
+    border-radius: 100px 100px 30px 100px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.gallery-img-container {
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.gallery-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-img-container:hover img {
+    transform: scale(1.1);
+}
+
+button.cta {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 8px 25px rgba(255, 92, 119, 0.3);
+}
+
+button.cta:hover {
+    background-color: #ff758f;
+    box-shadow: 0 12px 35px rgba(255, 92, 119, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- Text Styling Utility classes --- */
+.story-text {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Animations Definitions --- */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heart Cascade Styles */
+.heart {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.5rem;
+    animation: heartFly 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes heartFly {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, calc(-50% - 100px)) scale(0);
+        opacity: 0;
+    }
+}
