@@ -187,7 +187,39 @@ button.cta:hover {
         transform: translateY(0);
     }
 }
+/* Modal Styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(61, 30, 37, 0.4);
+    backdrop-filter: blur(5px);
+}
 
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 40px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--primary);
+}
 /* Heart Cascade Styles */
 .heart {
     position: absolute;
